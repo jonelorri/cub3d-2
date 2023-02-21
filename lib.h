@@ -14,9 +14,11 @@ typedef struct s_player
 {
 	int		posX;
 	int		posY;
+	float	dirX;
+	float	dirY;
 	double	direction_angle;
-	double	speed;
-	double	rot_speed;
+	float	m_speed;
+	float	r_speed;
 }				t_player;
 
 typedef struct	s_data
@@ -28,10 +30,13 @@ typedef struct	s_data
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
+	char		**world_map;
 	t_player	p;
 }				t_data;
 
 void    draw_map(t_data *data, int color);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+char	*ft_strdup(char *s1);
+size_t	ft_strlen(const char *str);
 
 #endif

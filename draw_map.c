@@ -40,15 +40,20 @@ void    draw_unit_square(t_data *data, int mapX, int mapY, int color)
 
 void    draw_map(t_data *data, int color)
 {
+	t_data	*m;
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
+	m = data;
+	m->world_map = (char **)malloc(sizeof(char *) * mapHeight);
 	while (j < mapHeight)
 	{
+		m->world_map[j] = (char *)malloc(mapWidth);
 		while (i < mapWidth)
 		{
+			m->world_map[j][i] = worldMap[j][i];
 			if (worldMap[j][i] == 1)
 				draw_unit_square(data, i, j, color);
 			i ++;

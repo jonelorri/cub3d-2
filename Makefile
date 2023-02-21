@@ -1,10 +1,10 @@
 NAME = cub3d
 
 SRC =  main.c\
-		draw_map.c
+		draw_map.c\
 
 OBJ = main.o\
-		draw_map.o
+		draw_map.o\
 
 CC = gcc -O3
 
