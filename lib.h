@@ -16,7 +16,7 @@ typedef struct s_player
 	int		posY;
 	float	dirX;
 	float	dirY;
-	double	direction_angle;
+	float	dir_angle;
 	float	m_speed;
 	float	r_speed;
 }				t_player;

@@ -58,6 +58,32 @@ int	key_event(int key_code, void *param)
 	return (1);
 }
 
+void	draw_line(void *param, int color)
+{
+    t_data	*m;
+
+	m = param;
+	if (m->p.dir_angle == 0)
+	{
+
+	}
+	else if (m->p.dir_angle == 90)
+	{
+		
+	}
+	else if (m->p.dir_angle == 180)
+	{
+		
+	}
+	else if (m->p.dir_angle == 270)
+	{
+		for (size_t i = 0; i < 300; i++)
+		{
+			my_mlx_pixel_put(m, m->p.posX, m->p.posY + i, color);
+		}
+	}
+}
+
 int main()
 {
     t_data	m;
@@ -68,6 +94,7 @@ int main()
 	m.p.r_speed = 0.5;
 	m.p.dirX = 0;
 	m.p.dirY = -1;
+	m.p.dir_angle = 270;
 
 	m.mlx = mlx_init();
 	m.mlx_win = mlx_new_window(m.mlx, screenWidth, screenHeight, "Raycaster");
@@ -75,6 +102,7 @@ int main()
 	m.addr = mlx_get_data_addr(m.img, &m.bits_per_pixel, &m.line_length, &m.endian);
     draw_map(&m, 0xFFFFFF);
 	my_mlx_pixel_put(&m, m.p.posX, m.p.posX, 0xFF0000);
+	draw_line(&m, 0x008000);
 	mlx_put_image_to_window(m.mlx, m.mlx_win, m.img, 0, 0);
 	mlx_key_hook(m.mlx_win, &key_event, &m);
 	mlx_loop(m.mlx);
