@@ -1,6 +1,6 @@
 #include "lib.h"
 
-int worldMap[mapHeight][mapWidth]=
+int worldMap[9][16]=
 {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -47,11 +47,11 @@ void    draw_map(t_data *data, int color)
 	i = 0;
 	j = 0;
 	m = data;
-	m->world_map = (char **)malloc(sizeof(char *) * mapHeight);
-	while (j < mapHeight)
+	m->world_map = (char **)malloc(sizeof(char *) * m->mapH);
+	while (j < m->mapH)
 	{
-		m->world_map[j] = (char *)malloc(mapWidth);
-		while (i < mapWidth)
+		m->world_map[j] = (char *)malloc(m->mapW);
+		while (i < m->mapW)
 		{
 			m->world_map[j][i] = worldMap[j][i];
 			if (worldMap[j][i] == 1)

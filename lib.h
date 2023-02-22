@@ -7,8 +7,6 @@
 
 #define screenWidth 1601
 #define screenHeight 901
-#define mapWidth 16
-#define mapHeight 9
 
 typedef struct s_player
 {
@@ -23,6 +21,10 @@ typedef struct s_player
 
 typedef struct	s_data
 {
+	int			ray_num;
+	float		ray_len;
+	int			mapW;
+	int			mapH;
 	void		*mlx;
 	void		*mlx_win;
 	void		*img;
