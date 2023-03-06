@@ -2,7 +2,7 @@
 
 int worldMap[9][16]=
 {
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1},
@@ -50,10 +50,10 @@ void    draw_map(t_data *data, int color)
 	m->world_map = (char **)malloc(sizeof(char *) * m->mapH);
 	while (j < m->mapH)
 	{
-		m->world_map[j] = (char *)malloc(m->mapW);
+		m->world_map[j] = (char *)malloc(m->mapH);
 		while (i < m->mapW)
 		{
-			m->world_map[j][i] = worldMap[j][i];
+			m->world_map[j][i] = worldMap[j][i] + 48;
 			if (worldMap[j][i] == 1)
 				draw_unit_square(data, i, j, color);
 			i ++;
